@@ -17,6 +17,7 @@ namespace Baigiamasis_darbas.Tests
         public static IWebDriver driver;
         public static LogInPage _logInPage;
         public static ShoppingBagPage _shoppingBagPage;
+        public static StoresPage _storePage;
 
 
         [OneTimeSetUp]
@@ -25,6 +26,7 @@ namespace Baigiamasis_darbas.Tests
             driver = CustomDriver.GetChromeDriver();
             _logInPage = new LogInPage(driver);
             _shoppingBagPage = new ShoppingBagPage(driver);
+            _storePage = new StoresPage(driver);
 
         }
         /*

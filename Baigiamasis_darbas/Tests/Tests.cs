@@ -9,7 +9,8 @@ namespace Baigiamasis_darbas.Tests
 {
     public class Tests : BaseTest
     {
-         [Test]
+        [Order(1)]
+        [Test]
          public static void TestLogIn()
          {
             _logInPage.NavigateToDefaultPage()
@@ -21,11 +22,42 @@ namespace Baigiamasis_darbas.Tests
                 .ClickLogin()
                 .CheckResult("Abc");
          }
-
-         [Test]
-         public static void TestShoppingBag()
+        [Order(2)]
+        [Test]
+         public static void TestItemAddingToShoppingBag()
          {
-
+            _shoppingBagPage.NavigateToDefaultPage()
+                .AcceptAllCookies()
+                .AddToShoppingBag()
+                .CheckItemIsAdded("ROKIŠKIO NAMINIS");
          }
+        [Order(3)]
+        [Test]
+        public static void TestItemAddingViaPlusButton()
+        {
+            _shoppingBagPage.AddOneMoreTheSameItem()
+                .CheckItemsAreAdded("2");
+        }
+
+        [Order(4)]
+        [Test]
+        public static void TestEmptyShoppingBag()
+        {
+            _shoppingBagPage.EmptyShoppingBag()
+                .ApproveEmptyShoppingBag()
+                .ShoppingBagIsEmpty("Jūsų krepšelis tuščias");
+        }
+
+        [Order(5)]
+        [Test]
+        public static void TestFilter()
+        {
+            _storePage.NavigateToDefaultPage()
+                .AcceptAllCookies()
+                .OpenFilter()
+                .ChooseNVRimi()
+                .StoresWithSIconsAreDisplayed();
+        }
+
     }
 }
