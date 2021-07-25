@@ -29,19 +29,19 @@ namespace Baigiamasis_darbas.Tests
             _storePage = new StoresPage(driver);
 
         }
-        /*
+        
         [TearDown]
         public static void TakeScreenshot()
         {
             if (TestContext.CurrentContext.Result.Outcome != ResultState.Success)
                 MyScreenshot.MakeScreenshot(driver);
         }
-        */
+        
         [OneTimeTearDown]
 
         public static void TearDown()
         {
-            // driver.Quit(); 
+            driver.Quit(); 
         }
     }
 }

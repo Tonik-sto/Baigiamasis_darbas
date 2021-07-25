@@ -52,7 +52,7 @@ namespace Baigiamasis_darbas.Pages
         
         public StoresPage StoresWithSIconsAreDisplayed()
         {
-            Thread.SpinWait(3000);
+            Thread.SpinWait(5000);
             IReadOnlyCollection<IWebElement> _StoresList = Driver.FindElements(By.XPath("/html/body/main/section/div/div[2]/div[1]/div[3]/ul/li"));
             //GetWait().Until(ExpectedConditions.ElementExists(By.XPath("/html/body/main/section/div/div[2]/div[1]/div[3]/ul/li")));
 
